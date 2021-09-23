@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+        {% for post in post_list %}
+            <div id='post_li' class='container'>
+                <h1 class='techfont'><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <div class='date'>{{ post.publication_date|date:'M d, Y'  }}</div>
+                <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comment.count }} </a>
+                <br><br>
+            </div>
+            
+
+        {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+        {% if registered %}
+            <h1>תודה רבה!</h1>
+        {% else %}
+            <h1>REGISTER!</h1>
+            <h3>FILL IN DIS!</h3>
+
+            <form method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <div class="container">
+                {{form.as_p}}
+                
+                
+
+            </div>
+            
+            <input type="submit" value="register">
+            </form>
+        {% endif %}
+
+    {% endblock %}
